@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function calculate() {
+                var x = document.getElementById('x').value;
+                var y = document.getElementById('y').value;
+                // use x in a calculation
+                // then use document.getElementById('outputn').innerHTML = to output value
+                var equation1 = (Math.pow(y,2)) * (3 - x); //must separate y2 as (y * y) or Math.pow(y,2) to work correctly.
+                var equation2 = x % 2;
+                var equation3 = y / x;
+
+                //document.getElementById('output1').innerHTML = x; //output the user input for variable x into id = "output1" ITS A TEST
+                //document.getElementById('output2').innerHTML = y; //output the user input for variable y into id = "output2" ITS A TEST
+
+                document.getElementById('output1').innerHTML = equation1;
+                document.getElementById('output2').innerHTML = equation2;
+                document.getElementById('output3').innerHTML = equation3;
+            }
+            </script>
+
+
+    </head>
+    <body>
+        x = <input type="text" id="x"><br>
+        y = <input type="text" id="y"><br><br>
+        <input type="button" value="Calculate" onclick="calculate()">
+        <br><br>
+        (y2) * (3 -x) = <span id = "output1">?</span><br>
+        x % 2 = <span id = "output2">?</span><br>
+        y / x = <span id = "output3">?</span>
+
+
+        
+    </body>
+</html>

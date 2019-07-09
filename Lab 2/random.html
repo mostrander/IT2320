@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<HTML>
+<head> 
+
+</head>
+
+<body>
+<h2> Random Array</h2>
+
+<p id = "array"></p>
+
+<script>
+    //var random = ["JavaScript", "OMG"]; //Must use "", also, without them messes up getElementById("array") below
+
+    //Create variable to use for loop that builds random array
+    var i = 0;
+    var random = [];
+
+    //create for loop to populate random array
+    for (i = 0; i < 100; i++)       //works just fine!
+    {
+        random.push(Math.random());
+    }
+    
+    //document.getElementById("array").innerHTML = random.length; //works! Makes sure length of array is 100
+    
+    text = "";
+    //Loop that writes each array element to the user console.
+    for (i = 0; i < random.length; i++)     
+    {
+       text += random[i] + "<br>";
+    }
+    
+    //document.getElementById("array").innerHTML = random; //should output entire array & it does
+    document.getElementById("array").innerHTML = text; //should output array elements on separate lines
+
+</script>
+
+
+</body>
+
+</HTML>
