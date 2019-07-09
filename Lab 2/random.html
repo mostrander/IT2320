@@ -7,6 +7,7 @@
 <body>
 <h2> Random Array</h2>
 
+<h3>Number of elements in Array: <span id = "elements"></span></h3>
 <p id = "array"></p>
 
 <script>
@@ -19,10 +20,10 @@
     //create for loop to populate random array
     for (i = 0; i < 100; i++)       //works just fine!
     {
-        random.push(Math.random());
+        random.push(Math.floor(Math.random() * 100) + 1);
     }
     
-    //document.getElementById("array").innerHTML = random.length; //works! Makes sure length of array is 100
+    document.getElementById("elements").innerHTML = random.length; //works! Makes sure length of array is 100
     
     text = "";
     //Loop that writes each array element to the user console.
