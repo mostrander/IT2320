@@ -1,0 +1,91 @@
+<html>
+<head>
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif }
+</style>
+<script>
+    // Video Demonstration - https://youtu.be/9CH7_BiI_1A
+    var totalAmountBeforeTax = 0;
+    var items = "<table border='1' cellpadding='4' cellspacing='0'>" +
+        "<tr><td>Item</td><td>Item Cost</td></tr>";
+    function addItem() {
+        var newAmount = document.getElementById('newAmount').value;
+		
+        // 1. Add the value of newAmount to the running total totalAmount. Tip: Use parseFloat()
+        var itemDescription = document.getElementById('newItem').value;
+        items = items.replace("</table>", "");
+
+        //use parse float because javascript will treat values as strings otherwise!
+        //do NOT use parseFloat().toFixed(#) here, it will mess up the addition!
+        totalAmountBeforeTax += parseFloat(newAmount);
+
+
+        // 2. Concatenate the value of Item Description into the table. Change item to the value of itemDescription
+        //items += "<tr><td>Item</td><td>$" + newAmount + "</td></tr>"
+
+        //NOTE: changed "<tr><td>item</td><td>$" to "<tr><td>" + itemDescription + "</td><td>$" so given description is used instead!
+        items += "<tr><td>" + itemDescription + "</td><td>$" + parseFloat(newAmount).toFixed(2) + "</td></tr>"
+        items += "</table>";
+
+
+        // Display items in element with id="listOfElements"
+        document.getElementById('listOfItems').innerHTML = items;
+
+
+        /// 3. Display totalAmount in element with id="totalAmountBeforeTax"
+        document.getElementById('totalAmountBeforeTax').innerHTML = parseFloat(totalAmountBeforeTax).toFixed(2);
+
+
+        // 4. Calculate tax as 7% of total (totalAmount)
+        var taxAmount = 0;
+
+        //Need to use parseFloat().toFixed(#) to get value to work!
+        taxAmount = parseFloat(totalAmountBeforeTax).toFixed(2) * (.07);
+
+
+        // 5. Display tax in element with id="totalTax"
+        document.getElementById("totalTax").innerHTML = parseFloat(taxAmount).toFixed(2);
+
+
+        // 6. Display totalAmount + tax in element with id="totalAfterTax"
+
+        //NOTE: created a new variable to hold result of calculation, 
+            //also simplifies printing it to the "totalAfterTax" id tag.
+        var totalAfterTax = 0;
+        totalAfterTax = totalAmountBeforeTax + taxAmount;
+        document.getElementById("totalAfterTax").innerHTML = parseFloat(totalAfterTax).toFixed(2);
+                
+
+        // 7. Display all currency values that are output to display 2 decimal places
+        //      Hint: use toFixed() 
+        document.getElementById('newItem').value = "";
+        document.getElementById('newAmount').value = "";
+
+        //shows 0.00 after user inputs first value, but forces user to delete 0.00 before entering value
+        //document.getElementById('newAmount').value = parseFloat("0").toFixed(2); 
+        document.getElementById('newItem').focus();
+
+    }
+</script>
+</head>
+<body>
+   <h1>Grocery List</h1>
+   <p>
+      <h2>Add Item</h2> 
+      Description: <br><input type="text" id="newItem"><br>
+      Amount: <br><input type="text" id="newAmount"> 
+      <input type="button" onclick="addItem()" value="Add Item">
+   </p>
+   <h2>Grocery Cart</h2>
+   <span id="listOfItems">&nbsp;</span>
+   <p>
+       <h2>Total</h2>
+      Total: $<span id="totalAmountBeforeTax">0</span><br>
+      Tax: $<span id="totalTax">0</span><br>
+      Total with Tax: $<span id="totalAfterTax">0</span>
+   </p>
+   <script>
+      document.getElementById('newItem').focus();
+   </script>
+</body>
+</html>
