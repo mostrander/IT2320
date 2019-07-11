@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<HTML>
+    <head>
+        <Title>Today</Title>
+    </head>
+
+
+    <body>
+        <button id = "Display_Date" onclick="today()">Display Date</button><br><br>
+
+        <h3>Date 1</h3><span id = "Date1">?</span><br>
+        <h3>Date 2</h3><span id = "Date2">?</span><br>
+        <h3>Date 3</h3><span id = "Date3">?</span>
+        
+
+        <Script>
+            function today()
+            {
+            //Create date object
+            var date = new Date(); //calls the current date!
+            document.getElementById("Date1").innerHTML = date.toString(); //???
+
+            document.getElementById("Date2").innerHTML = date.toLocaleDateString();
+
+            document.getElementById("Date3").innerHTML = date.toDateString();
+            
+//Changed new Date() to be blank so it calls the system date instead of a specified date. 
+//It was a silly little issue, but I am glad I figured it out!
+//Also simplified it down to one variable and call same variable each time.
+            }
+
+        </Script>
+    </body>
+</HTML>
