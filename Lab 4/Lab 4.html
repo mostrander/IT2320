@@ -44,12 +44,13 @@
                //x[i].style.display = "none";  
                
                $(".tab").hide(); //hides all tabs
+
            // }
             // 6. Change the following line style.display = "block" to show()
             //https://www.w3schools.com/jquery/jquery_hide_show.asp
-            document.getElementById(tabName).style.display = "block";  
+            //document.getElementById(tabName).style.display = "block";  
 
-               
+            $("#" + tabName).show();   //this did it!
             
 
         }
