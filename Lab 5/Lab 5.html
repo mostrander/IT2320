@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script>
+      // 1. use eq to retrieve the paragraph with index 1. 
+        //    Highlight it by setting the CSS background-color to yellow.
+        
+        $(document).ready(function()
+        {
+            $("p").eq(1).css("background-color", "yellow");
+        });
+
+        
+      // 2. if the user clicks the submit button and the value of favoriteFood is empty, 
+	    //    display an error message stating "You must enter a favorite food" 
+        //    in the span following favoriteFood using the next() method.
+        
+       
+        $(document).ready(function()
+        {
+
+            $("#button").click(function()
+            {
+                event.preventDefault(); //prevents messaage from erasing / webpage refresh immediately.
+                if($("#favoriteFood").val() == "")
+                {
+                    var ff = $("#favoriteFood");
+                    ff.next().html("You must enter a favorite food");
+                    $("span").css({"color" : "black" , "font-weight" : "bold", "border" : "3px solid red", "padding": "3px"});
+                }
+            });
+
+        });
+        
+
+
+      // 3. retrieve the first paragraph element and use the parent() method to modify 
+        //    the appearance of the h1 element.
+
+        $(document).ready(function()
+        {
+            $("p").eq(0).parent($("h1").css("background-color", "red")); //only way to NOT turn whole page red
+        });
+        
+        
+
+   </script>
+</head>
+<body>
+   <h1>Lab 5</h1>
+   <p>My name is Al.</p>
+   <p>Al Dente.</p>
+   <p>I live in the land of Pasta.</p>
+   <p>My best friend is Cheese.</p>
+
+   <form id="favoriteForm" name="favoriteForm">
+      Enter your favorite food <input id="favoriteFood" name="favoriteFood" type="text"> <span> &nbsp; </span>
+      <br><br>
+	  <input type="submit" value="Submit" id="button">
+   </form>
+</body>
+</html>
