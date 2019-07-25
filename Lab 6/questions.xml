@@ -1,0 +1,31 @@
+
+<questions>
+    <question id="1">
+        <questiontext>Describe the purpose of AJAX. What advantage does AJAX provide over a traditional
+                HTML form submit. [2 points]</questiontext>
+        
+        <answer id="answer1">The entire purpose of AJAX is to update a webpage WITHOUT having to 
+            reload the entire webpage again to see the changes. It does so by loading the data 
+            in the background, and thus allows for a more seamless user experience with minimal 
+            load times, and by extension most likely lessens the overall burden on the server 
+            the webpage is hosted on. </answer>
+    </question>
+
+    <question id="2">
+        <questiontext>Describe the role of JSON and XML with AJAX. [2 points]</questiontext>
+        
+        <answer id="answer2">The primary role of JSON and XML in relation to AJAX is the data is stored in
+            either in a JSON or XML file, and then AJAX can be used within a JAvaScript file or script 
+            to obtain the data from the external files. </answer>
+    </question>
+
+    <question id="3">
+        <questiontext>If you had to choose just one, which would you choose: XML or JSON? Why? [2 points]</questiontext>
+        
+        <answer id="answer3">I would have to choose JSON as my preferred option because it is capable 
+                of being accessed directly through JavaScript without additional work or special workarounds; Also, 
+                it is able to be written in a more condense format due to not requiring end tags, whereas XML 
+                requires end tags to differentiate the data. Another important difference is XML is incapable 
+                of utilizing arrays, whereas JSON can be formatted in an array.</answer>
+    </question>
+</questions>

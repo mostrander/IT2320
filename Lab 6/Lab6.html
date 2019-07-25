@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>First Form</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+    
+        var members = [
+            {
+                "name" : "Cara Van",
+                "address" : "2 Highway",
+                "city" : "Cleveland",
+                "zip" : "12345",
+                "phone" : "999-999-9999",
+                "level" : "Contributing",
+                "cost" : "65.00"
+            },
+
+            {
+                "name" : "Bill Bord",
+                "address" : "1 Side of Street",
+                "city" : "Parma",
+                "zip" : "11111",
+                "phone" : "123-123-1234",
+                "level" : "Individual • cost = 50.00"
+            }];
+
+
+
+
+        $(document).ready(function()
+        {
+            $.ajax("members.json", //grab the data from file
+            {success: function(data) //if successful
+                {
+                    $("#members").html(data); //place data in id tag members RAW data shown
+                }})
+            $("#members").html(members); //should show table
+        });
+        
+    
+    </script>
+</head>
+
+<body>
+
+    <h1>Membership Levels</h1>
+        <span id="membershipLevels"></span>
+        
+    <h1>Current Members</h1>
+        <span id="members"></span>
+
+    
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<memberships>
+
+    <membership>
+        <type> seasonal </type>
+        <cost> $35.00 </cost>
+    </membership>
+
+    <membership>
+        <type> individual </type>
+        <cost> 50.00 </cost>
+    </membership>
+
+    <membership>
+        <type> family </type>
+        <cost> 65.00 </cost>
+    </membership>
+
+    <membership>
+        <type> contributing </type>
+        <cost> 70.00 </cost>
+    </membership>
+</memberships>
