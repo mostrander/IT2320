@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+   .requiredError{
+      border: 2px solid red;
+   }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"> </script> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+
+<title>IT2320 - Lab 9</title>
+
+<script>
+   $(document).ready(function(){
+      
+      $(".requiredError").hide();
+      $('#firstName').focus();
+
+      $(function() { 
+         $("#datepicker").datepicker(
+            {
+               changeMonth: true,
+               changeYear: true
+            }
+         ); 
+      });
+   });
+
+   function requiredFields(){
+      $("span").css("color", "black");
+      var errorMsg = "<ul class='errormsg'>";
+
+      if ($("#firstName").val() == "" ){
+         errorMsg += "<li>First name is required</li>";
+         $("#firstNameLabel").css("color", "red");
+      }
+      if ($("#LastName").val() == "" ){
+         errorMsg += "<li>Last name is required</li>";
+         $("#LastNameLabel").css("color", "red");
+      }
+      if ($("#address").val() == "" ){
+         errorMsg += "<li>Address is required</li>";
+         $("#addressLabel").css("color", "red");
+      }
+      if ($("#city").val() == "" ){
+         errorMsg += "<li>City is required</li>";
+         $("#cityLabel").css("color", "red");
+      }
+      if ($("#state").val() == "" ){
+         errorMsg += "<li>State is required</li>";
+         $("#stateLabel").css("color", "red");
+      }
+      if ($("#zip").val() == "" ){
+         errorMsg += "<li>Zipcode is required</li>";
+         $("#zipLabel").css("color", "red");
+      }
+      if ($("#age").val() == "" ){
+         errorMsg += "<li>Age is required</li>";
+         $("#ageLabel").css("color", "red");
+      } else {
+         if ($("#age").val() < 0 || $("#age") > 100 )
+         {
+            errorMsg += "<li>Age must be between 0 - 100</li>";
+            $("#ageLabel").css("color", "red");
+         }
+      }
+
+      errorMsg += "</ul>";
+      $("#msgArea").html(errorMsg);  
+   };
+   $('#firstName').focus();
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+
+<body>
+<h1><center>IT 2320 Lab 9</center></h1>
+<h2><center>Using a date picker & labels to identify empty input</center></h2>
+
+<span id="msgArea"></span>
+
+<table border="0" id="form">
+      <tr><td><span id="firstNameLabel">First Name</span></td><td><input type="text" id="firstName"></td> <td></td></tr>
+	  <tr><td><span id="LastNameLabel">Last Name</span></td><td><input type="text" id="LastName"></td> <td></td> </tr>
+	  <tr><td><span id="addressLabel">Address</span></td><td><input type="text" id="address"></td> <td></td></tr>
+	  <tr><td><span id="cityLabel">City </span></td><td><input type="text" id="city"></td> <td></td> </tr>
+	  <tr><td><span id="stateLabel">State </span></td><td><input type="text" id="state"></td> <td></td></tr>
+	  <tr><td><span id="zipLabel">Zip</span></td><td> <input type="number" id="zip"></td> <td></td></tr>
+	  <tr><td><span id="ageLabel">Age</span></td><td><input type="number" id="age"></td> <td></td> </tr>
+	  <tr><td>Start Date</td><td><p><input type="text" id="datepicker"></p></td><td></td> </tr>
+	  <tr><td>&nbsp;</td><td><button class="w3-bar-item w3-button" id="submit" onclick = "requiredFields()">SUBMIT</button></td> </tr>
+</table>
+</body>
+</html>
